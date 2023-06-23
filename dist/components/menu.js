@@ -16,11 +16,11 @@ class Menu {
         function enumKeys(obj) {
             return Object.keys(obj).filter((k) => Number.isNaN(+k));
         }
-        function log4(value) {
+        function imprimir(value) {
             console.log(`${value}`);
         }
         for (const value of enumKeys(MENU)) {
-            log4(MENU[value]);
+            imprimir(MENU[value]);
         }
     }
 }

@@ -17,11 +17,11 @@ export class Menu {
     ): K[] {
       return Object.keys(obj).filter((k) => Number.isNaN(+k)) as K[];
     }
-    function log4(value: MENU) {
+    function imprimir(value: MENU) {
       console.log(`${value}`);
     }
     for (const value of enumKeys(MENU)) {
-      log4(MENU[value]);
+      imprimir(MENU[value]);
     }
   }
 }
