@@ -1,7 +1,7 @@
 import { IProducto } from "../models/IProducto";
 
 export interface IOperaciones{
-    busquedaProducto(productos:IProducto[]):IProducto[];
+    busquedaProducto():void;
     compraProducto():void;
     cantidadProducto():void;
 }

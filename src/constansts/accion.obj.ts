@@ -1,9 +1,9 @@
 import scanf from "scanf";
 import { Maquina } from "../components/maquina"
-/*
+
 const accion:Maquina = Maquina.Instance;
-accion.verProducto
-*/
+accion.verProducto()
+
 
 
 /*
@@ -41,16 +41,16 @@ sendAction(user);
 
 
 
-/*
-const verCatalogo = ()=>"Estamos viendo productos";
+
+const verCatalogo = ()=>accion.verProducto();
 const seleccionarProducto = ()=>"Estamos seleccionado un producto";
 const ingresarBillete = ()=>"Estamos ingresando el dinero";
 const salir = ()=>"Estamos saliendo de la aplicacion";
 
-console.log("Ingresa la accion a realizar");
-const query = scanf("%d");
-typeof(query);
-const funcion = query;
+//console.log("Ingresa la accion a realizar");
+//const query = scanf("%d");
+//typeof(query);
+const funcion = 1;
 
 const accionesMaquina = {
     1:verCatalogo,
@@ -61,5 +61,5 @@ const accionesMaquina = {
 
 const funcionError = "No se encuentra la accion a realizar";
 const seleccionFuncion = accionesMaquina[funcion] || funcionError;
-console.log(seleccionFuncion)
-*/
+console.log(seleccionFuncion())
+

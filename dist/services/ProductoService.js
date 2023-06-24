@@ -14,7 +14,7 @@ class ProductoService extends MaquinaProducto_1.MaquinaProducto {
         this.productos.forEach((producto) => console.log(producto));
     }
     seleccionarProducto() {
-        this.busquedaProducto(this.productos);
+        this.busquedaProducto();
     }
     ingresarBillete() {
         this.compraProducto();

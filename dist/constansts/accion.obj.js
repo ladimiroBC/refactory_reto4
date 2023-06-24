@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/*
-const accion:Maquina = Maquina.Instance;
-accion.verProducto
-*/
+const maquina_1 = require("../components/maquina");
+const accion = maquina_1.Maquina.Instance;
+accion.verProducto();
 /*
 type action = {
     instruccion:string;
@@ -34,25 +33,20 @@ const user = new Accion({
 
 sendAction(user);
 */
-/*
-const verCatalogo = ()=>"Estamos viendo productos";
-const seleccionarProducto = ()=>"Estamos seleccionado un producto";
-const ingresarBillete = ()=>"Estamos ingresando el dinero";
-const salir = ()=>"Estamos saliendo de la aplicacion";
-
-console.log("Ingresa la accion a realizar");
-const query = scanf("%d");
-typeof(query);
-const funcion = query;
-
+const verCatalogo = () => accion.verProducto();
+const seleccionarProducto = () => "Estamos seleccionado un producto";
+const ingresarBillete = () => "Estamos ingresando el dinero";
+const salir = () => "Estamos saliendo de la aplicacion";
+//console.log("Ingresa la accion a realizar");
+//const query = scanf("%d");
+//typeof(query);
+const funcion = 1;
 const accionesMaquina = {
-    1:verCatalogo,
-    2:seleccionarProducto,
-    3:ingresarBillete,
-    4:salir
-}
-
+    1: verCatalogo,
+    2: seleccionarProducto,
+    3: ingresarBillete,
+    4: salir
+};
 const funcionError = "No se encuentra la accion a realizar";
 const seleccionFuncion = accionesMaquina[funcion] || funcionError;
-console.log(seleccionFuncion)
-*/
+console.log(seleccionFuncion());

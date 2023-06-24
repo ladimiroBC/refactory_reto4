@@ -18,7 +18,7 @@ export class ProductoService extends MaquinaProducto implements IProductoService
   }
 
   seleccionarProducto(): void {
-    this.busquedaProducto(this.productos);
+    this.busquedaProducto();
   }
 
   ingresarBillete(): void {

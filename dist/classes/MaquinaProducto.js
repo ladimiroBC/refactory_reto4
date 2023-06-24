@@ -6,18 +6,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MaquinaProducto = void 0;
 const scanf_1 = __importDefault(require("scanf"));
 class MaquinaProducto {
-    constructor() { }
-    busquedaProducto(productos) {
+    constructor() {
+        this.seleccion = "";
+    }
+    busquedaProducto() {
         let bandera = true;
         console.log("Ingresa el nombre de un producto");
         let query = (this.seleccion = (0, scanf_1.default)("%s"));
-        const find = productos.find((p) => {
+        let find = this.productos.some((p) => {
             return p.name == query;
         });
         while (bandera) {
             if (find) {
-                this.selectProducto = productos.filter((p) => {
-                    return p.name == query;
+                this.selectProducto = this.productos.filter((p) => {
+                    return p.name === query;
                 });
                 bandera = false;
             }
@@ -25,31 +27,39 @@ class MaquinaProducto {
                 console.log("El producto ingresado no se encuentra registrado");
                 console.log("Ingresa nuevamente el nombre de un producto");
                 query = this.seleccion = (0, scanf_1.default)("%s");
+                find = this.productos.some((p) => {
+                    return p.name == query;
+                });
             }
         }
-        return this.selectProducto;
+        console.log(`Producto seleccionado---> ${this.selectProducto[0].name}`);
     }
     compraProducto() {
-        console.log("Ingrese el billete para la compra");
-        let dinero = (this.billete = (0, scanf_1.default)("%d"));
-        this.accesoProducto = this.selectProducto[0];
-        let bandera = true;
-        while (bandera) {
-            this.cantidadProducto();
-            let total = this.accesoProducto.price * this.cantidad;
-            if (total <= dinero) {
-                let devolucion = dinero - this.accesoProducto.price;
-                console.log("***Venta Existosa***");
-                console.log(`Producto ${this.accesoProducto.name} vendido`);
-                console.log(`Cantidad vendida ${this.cantidad}`);
-                console.log(`Devolución ${devolucion}`);
-                bandera = false;
+        if (this.seleccion.length > 0) {
+            console.log("Ingrese el billete para la compra");
+            let dinero = (this.billete = (0, scanf_1.default)("%d"));
+            this.accesoProducto = this.selectProducto[0];
+            let bandera = true;
+            while (bandera) {
+                this.cantidadProducto();
+                let total = this.accesoProducto.price * this.cantidad;
+                if (total <= dinero) {
+                    let devolucion = dinero - this.accesoProducto.price;
+                    console.log("***Venta Existosa***");
+                    console.log(`Producto ${this.accesoProducto.name} vendido`);
+                    console.log(`Cantidad vendida ${this.cantidad}`);
+                    console.log(`Devolución ${devolucion}`);
+                    bandera = false;
+                }
+                else {
+                    console.log("Insuficiente fondo para obtener el producto");
+                    console.log("Ingresa nuevamente el billete para la compra");
+                    dinero = this.billete = (0, scanf_1.default)("%d");
+                }
             }
-            else {
-                console.log("Insuficiente fondo para obtener el producto");
-                console.log("Ingresa nuevamente el billete para la compra");
-                dinero = this.billete = (0, scanf_1.default)("%d");
-            }
+        }
+        else {
+            console.log("No ha seleccionado ningun producto todavia");
         }
     }
     cantidadProducto() {
